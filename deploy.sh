@@ -55,6 +55,7 @@ echo "修改文件夹权限..."
 # 修改文件夹权限
 sudo chmod 777 docker/data 
 sudo chmod 777 docker/pgdata
+docker compose up -d
 
 echo "回到项目根目录并构建 Docker 镜像..."
 # 回到项目根目录并构建 Docker 镜像
