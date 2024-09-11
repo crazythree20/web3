@@ -49,10 +49,7 @@ yarn build
 
 echo "安装 Docker..."
 # 安装 Docker
-sudo apt-get update
-sudo apt-get install -y docker.io
-sudo systemctl start docker
-sudo systemctl enable docker
+snap install docker
 
 echo "修改文件夹权限..."
 # 修改文件夹权限
@@ -62,11 +59,11 @@ sudo chmod 777 docker/pgdata
 echo "回到项目根目录并构建 Docker 镜像..."
 # 回到项目根目录并构建 Docker 镜像
 cd ../../
-sudo docker build -t tracker:latest .
+docker build -t tracker:latest .
 
 echo "运行 Docker 容器..."
 # 运行 Docker 容器
-sudo docker run -d \
+docker run -d \
     --name tracker \
     --add-host="host.docker.internal:host-gateway" \
     -e DATABASE_HOST="host.docker.internal" \
